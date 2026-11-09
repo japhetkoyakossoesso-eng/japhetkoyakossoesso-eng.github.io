@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Japhet Koyakosso-Esso</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Portfolio de Japhet Koyakosso-Esso, étudiant en L3 MIASHS parcours Informatique : data, intelligence artificielle et développement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Mise en page : une nuit de travail d'ingénieur — fond profond, réseau de données vivant, un seul accent ambre ; contenu aligné à gauche, une colonne de lecture. */
+:root{
+  --bg:#0F1420; --panel:#161F30; --panel-2:#1D2740; --line:#2A3550;
+  --text:#EDEFF3; --muted:#93A0B8; --amber:#E8A33D; --amber-soft:rgba(232,163,61,.14); --teal:#5FD0A6;
+  --display:'Fraunces', Georgia, 'Times New Roman', serif;
+  --body:'IBM Plex Sans', -apple-system, 'Segoe UI', sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --radius:10px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+::selection{background:var(--amber);color:#1A1200}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+p{margin:0}
+
+#reseau{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6}
+#halo{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(520px circle at var(--x,70%) var(--y,20%),rgba(232,163,61,.09),transparent 62%)}
+
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+
+/* Navigation */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(15,20,32,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.monogramme{font-family:var(--display);font-weight:700;font-size:1.15rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.monogramme span{display:grid;place-items:center;width:34px;height:34px;border:1.5px solid var(--amber);border-radius:50%;color:var(--amber);font-size:.95rem}
+.nav ul{list-style:none;display:flex;gap:22px;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{text-decoration:none;color:var(--muted);font-size:.94rem;font-weight:500}
+.nav ul a:hover{color:var(--text)}
+.dispo{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--teal);border:1px solid rgba(95,208,166,.35);border-radius:20px;padding:4px 12px}
+.dispo i{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 rgba(95,208,166,.6);animation:pouls 2.2s infinite}
+@keyframes pouls{70%{box-shadow:0 0 0 8px rgba(95,208,166,0)}100%{box-shadow:0 0 0 0 rgba(95,208,166,0)}}
+@media (max-width:760px){.nav ul{display:none}}
+
+section{padding-block:clamp(56px,9vw,104px)}
+.titre-section{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:34px}
+.titre-section h2{font-size:clamp(1.9rem,4vw,2.7rem)}
+.titre-section p{color:var(--muted);max-width:52ch}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,56px);align-items:center;padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+.lieu{color:var(--muted);font-size:.95rem;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hero h1{font-size:clamp(2.7rem,7vw,5rem);font-weight:600;margin:16px 0 0;line-height:1.02}
+.hero h1 .nom{display:block;color:var(--amber);font-style:italic;font-weight:500}
+.metier{font-family:var(--display);font-size:clamp(1.15rem,2.2vw,1.45rem);color:var(--text);margin-top:20px}
+.metier b{font-weight:500;color:var(--teal)}
+.accroche{color:var(--muted);max-width:50ch;margin-top:14px;font-size:1.04rem}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.bouton{display:inline-flex;align-items:center;gap:8px;font:600 .98rem var(--body);text-decoration:none;border-radius:8px;padding:12px 20px;border:1.5px solid var(--amber);background:var(--amber);color:#1A1200;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.bouton:hover{transform:translateY(-2px)}
+.bouton.ligne{background:transparent;color:var(--text);border-color:var(--line)}
+.bouton.ligne:hover{border-color:var(--amber)}
+
+/* Terminal de démonstration */
+.terminal{background:#0B101A;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 30px 80px -30px rgba(0,0,0,.7);overflow:hidden;min-width:0}
+.terminal .barre{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+.terminal .barre i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+.terminal .barre i:nth-child(1){background:#E5615B}.terminal .barre i:nth-child(2){background:#E8A33D}.terminal .barre i:nth-child(3){background:#5FD0A6}
+.terminal .barre span{margin-left:10px;font:500 .8rem var(--mono);color:var(--muted)}
+.terminal .barre button{margin-left:auto;font:500 .75rem var(--mono);color:var(--muted);background:none;border:1px solid var(--line);border-radius:6px;padding:3px 9px;cursor:pointer}
+.terminal .barre button:hover{color:var(--text);border-color:var(--amber)}
+.terminal pre{margin:0;padding:18px 18px 22px;font:400 .84rem/1.65 var(--mono);color:#C9D2E3;white-space:pre-wrap;word-break:break-word;min-height:300px}
+.terminal .p{color:var(--teal)} .terminal .c{color:var(--amber)} .terminal .m{color:#6F7C96} .terminal .ok{color:var(--teal)}
+.curseur{display:inline-block;width:.6em;height:1.1em;vertical-align:-.2em;background:var(--amber);animation:clignote 1s steps(1) infinite}
+@keyframes clignote{50%{opacity:0}}
+
+/* Projet phare */
+.phare{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:26px;align-items:start}
+@media (max-width:900px){.phare{grid-template-columns:1fr}}
+.schema{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 10px 8px;min-width:0;
+  background-image:linear-gradient(rgba(147,160,184,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(147,160,184,.06) 1px,transparent 1px);background-size:22px 22px}
+.schema svg{width:100%;height:auto;display:block}
+.schema figcaption{font-size:.84rem;color:var(--muted);padding:4px 8px 6px}
+.trait{fill:none;stroke:#C9D2E3;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+.fin{fill:none;stroke:#6F7C96;stroke-width:1.2}
+.zone{fill:rgba(255,255,255,0);stroke:#C9D2E3;stroke-width:2;cursor:pointer;transition:fill .2s,stroke .2s;outline:none}
+.zone.ligne-z{stroke:transparent;stroke-width:18;fill:none}
+.zone:hover,.zone.active,.zone:focus-visible{fill:rgba(232,163,61,.22);stroke:var(--amber)}
+.zone.ligne-z:hover,.zone.ligne-z.active{stroke:rgba(232,163,61,.35)}
+.repere{stroke:#6F7C96;stroke-width:1.2}
+.bulle{cursor:pointer;outline:none}
+.bulle circle{fill:var(--amber);stroke:#0B101A;stroke-width:2;transition:transform .2s}
+.bulle text{font-family:var(--body)}
+.bulle .n{font-weight:600;font-size:19px;fill:#1A1200;text-anchor:middle;dominant-baseline:central}
+.bulle .lib{font-size:13.5px;fill:#C9D2E3;font-weight:500}
+.bulle:hover circle,.bulle.active circle,.bulle:focus-visible circle{stroke:var(--text);stroke-width:3}
+.volet{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;min-width:0}
+.volet h3{font-size:1.5rem}
+.compte{font-family:var(--display);font-size:3rem;line-height:1;color:var(--amber);margin-top:10px}
+.compte small{font-family:var(--body);font-size:.95rem;color:var(--muted);margin-left:6px}
+.volet .exemple{margin-top:14px;border-left:3px solid var(--amber);padding-left:12px;color:#C9D2E3;font-size:.95rem}
+.volet .ad{font:500 .8rem var(--mono);color:var(--amber);display:block;margin-bottom:2px}
+.volet .aide{color:var(--muted);font-size:.92rem;margin-top:8px}
+.faits{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.faits span{font-size:.84rem;color:var(--text);background:var(--panel-2);border:1px solid var(--line);border-radius:20px;padding:4px 12px}
+.pipeline{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;counter-reset:etape}
+@media (max-width:900px){.pipeline{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.pipeline{grid-template-columns:1fr}}
+.pipeline li{counter-increment:etape;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;min-width:0}
+.pipeline li::before{content:"Étape " counter(etape, decimal);display:block;font:500 .75rem var(--mono);color:var(--amber);margin-bottom:6px}
+.pipeline b{display:block;font-family:var(--display);font-weight:600;font-size:1.08rem;margin-bottom:4px}
+.pipeline p{color:var(--muted);font-size:.9rem}
+.lien-projet{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+
+/* Projets */
+.filtres{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filtres button{font:500 .92rem var(--body);color:var(--muted);background:transparent;border:1px solid var(--line);border-radius:20px;padding:7px 16px;cursor:pointer;transition:all .15s}
+.filtres button:hover{color:var(--text)}
+.filtres button[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:#1A1200}
+.grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.carte{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0;transition:transform .2s ease,border-color .2s ease}
+.carte:hover{transform:translateY(-4px);border-color:rgba(232,163,61,.55)}
+.carte .haut{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.carte h3{font-size:1.25rem}
+.carte .annee{font:500 .78rem var(--mono);color:var(--muted);white-space:nowrap}
+.carte p{color:var(--muted);font-size:.94rem;flex:1}
+.pile{display:flex;flex-wrap:wrap;gap:6px}
+.pile span{font:500 .74rem var(--mono);color:var(--teal);background:rgba(95,208,166,.08);border-radius:4px;padding:2px 7px}
+.carte .liens{display:flex;gap:14px;font-size:.9rem;font-weight:500}
+.carte .liens a{text-decoration:none;color:var(--amber)}
+.carte .liens a:hover{text-decoration:underline}
+.carte.vedette{border-color:rgba(232,163,61,.5);background:linear-gradient(160deg,rgba(232,163,61,.10),var(--panel) 55%)}
+.carte.cache{display:none}
+
+/* Compétences */
+.domaines{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.domaine{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px;min-width:0}
+.domaine h3{font-size:1.15rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.domaine h3 svg{width:20px;height:20px;flex:none;stroke:var(--amber)}
+.puces{display:flex;flex-wrap:wrap;gap:7px}
+.puces span{font-size:.88rem;border:1px solid var(--line);border-radius:6px;padding:4px 10px;color:var(--text);transition:border-color .15s,background .15s}
+.puces span:hover{border-color:var(--amber);background:var(--amber-soft)}
+
+/* Expérience & formation */
+.deux{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:820px){.deux{grid-template-columns:1fr}}
+.bloc{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:24px;min-width:0}
+.bloc h3{font-size:1.3rem}
+.bloc .quand{font:500 .8rem var(--mono);color:var(--amber);margin-top:4px}
+.bloc .ou{color:var(--muted);margin-top:2px}
+.bloc ul{margin:14px 0 0;padding-left:18px;color:#C9D2E3}
+.bloc li{margin-bottom:6px}
+.bloc + .bloc{margin-top:16px}
+
+/* Contact */
+.contact{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:clamp(26px,5vw,48px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;align-items:center}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.contact h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+.contact p{color:var(--muted);margin-top:12px;max-width:46ch}
+.canaux{display:grid;gap:10px}
+.canal{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--panel-2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0}
+.canal span{font-size:.8rem;color:var(--muted);display:block}
+.canal b{font-weight:500;word-break:break-all}
+.canal a,.canal button{font:600 .85rem var(--body);color:var(--amber);background:none;border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer;text-decoration:none;white-space:nowrap}
+.canal a:hover,.canal button:hover{border-color:var(--amber)}
+footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-align:center;padding-block:28px 40px}
+
+@media (prefers-reduced-motion:reduce){.dispo i,.curseur{animation:none}.carte,.bouton{transition:none}}
+</style>
+</head>
+<body>
+
+<canvas id="reseau" aria-hidden="true"></canvas>
+<div id="halo" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Navigation principale">
+  <div class="wrap">
+    <a class="monogramme" href="#accueil"><span>JK</span>Japhet Koyakosso-Esso</a>
+    <ul>
+      <li><a href="#certidoc">CertiDoc AI</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="dispo"><i></i>Stage dès février 2027</span>
+  </div>
+</nav>
+
+<main>
+  <!-- Accueil -->
+  <div class="wrap" id="accueil">
+    <header class="hero">
+      <div>
+        <p class="lieu">Toulouse · L3 MIASHS parcours Informatique</p>
+        <h1>Bonjour, je suis <span class="nom">Japhet Koyakosso-Esso</span></h1>
+        <p class="metier"><b>Data</b> · <b>Intelligence artificielle</b> · <b>Développement</b></p>
+        <p class="accroche">Je pars de données brutes pour construire des outils utiles et fiables : bases de données, applications web, et assistants à base d'IA qui citent leurs sources.</p>
+        <div class="actions">
+          <a class="bouton" href="#certidoc">Découvrir CertiDoc AI</a>
+          <a class="bouton ligne" href="#projets">Voir tous les projets</a>
+          <a class="bouton ligne" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <div class="terminal" aria-label="Démonstration de CertiDoc AI dans un terminal">
+        <div class="barre"><i></i><i></i><i></i><span>certidoc — zsh</span><button type="button" id="rejouer">Rejouer</button></div>
+        <pre id="console" aria-live="off"></pre>
+      </div>
+    </header>
+  </div>
+
+  <!-- Projet phare -->
+  <section id="certidoc">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Projet phare : CertiDoc AI</h2>
+        <p>Une base documentaire de certification d'hélicoptères que l'on interroge en langage naturel. Cliquez sur une zone de l'appareil pour voir ses consignes.</p>
+      </div>
+      <div class="phare">
+        <figure class="schema" style="margin:0">
+          <svg viewBox="0 0 1000 470" role="img" aria-label="Schéma d'hélicoptère interactif : nombre de consignes de navigabilité par zone">
+            <rect class="zone" data-zone="rotor" x="90" y="67" width="640" height="7" rx="3.5" tabindex="0" role="button" aria-label="Rotor principal"/>
+            <circle class="trait" cx="402" cy="71" r="8"/>
+            <rect class="trait" x="397" y="79" width="10" height="29"/>
+            <rect class="zone" data-zone="commandes" x="384" y="108" width="36" height="10" rx="2" tabindex="0" role="button" aria-label="Commandes de vol rotor"/>
+            <path class="zone" data-zone="bgp" d="M345 152 C350 128 364 120 394 120 L445 120 L445 152 Z" tabindex="0" role="button" aria-label="Transmission rotor principal"/>
+            <path class="zone" data-zone="moteur" d="M445 120 L500 120 C526 122 541 136 548 153 L445 153 Z" tabindex="0" role="button" aria-label="Moteur"/>
+            <path class="trait" d="M120 262 C118 230 140 196 175 178 C210 160 260 152 330 152 L560 153 C590 155 605 170 610 196 L612 236 C560 262 470 278 330 284 L190 288 C150 288 122 280 120 262 Z"/>
+            <g class="zone" data-zone="vitrages" tabindex="0" role="button" aria-label="Fenêtres et pare-brise">
+              <path d="M178 178 C202 166 236 158 262 156 L262 212 L148 222 C150 205 160 190 178 178 Z"/>
+              <rect x="278" y="170" width="62" height="42" rx="6"/>
+            </g>
+            <rect class="zone" data-zone="portes" x="356" y="162" width="98" height="106" rx="4" tabindex="0" role="button" aria-label="Portes"/>
+            <rect class="fin" x="370" y="174" width="70" height="38" rx="5"/>
+            <rect class="zone" data-zone="cabine" x="470" y="214" width="118" height="46" rx="4" style="stroke-dasharray:6 4" tabindex="0" role="button" aria-label="Équipements de cabine"/>
+            <rect class="fin" x="470" y="168" width="58" height="36" rx="6"/>
+            <path class="trait" d="M604 182 L862 168 L862 181 L610 226"/>
+            <path class="trait" d="M846 171 L870 100 L890 100 L879 192 Z"/>
+            <rect class="trait" x="792" y="181" width="44" height="5" rx="2"/>
+            <line x1="560" y1="176" x2="872" y2="160" stroke="#6F7C96" stroke-width="1.4" stroke-dasharray="5 5"/>
+            <line class="zone ligne-z" data-zone="arbre" x1="560" y1="176" x2="866" y2="161" tabindex="0" role="button" aria-label="Transmission rotor de queue"/>
+            <circle class="zone" data-zone="rac" cx="884" cy="150" r="34" style="stroke-dasharray:4 4" tabindex="0" role="button" aria-label="Rotor de queue"/>
+            <circle cx="884" cy="150" r="4" fill="#C9D2E3"/>
+            <path class="trait" d="M250 286 L236 330 M520 272 L538 330 M168 330 L585 330 Q604 330 610 318"/>
+            <g id="reperes"></g>
+            <g id="bulles"></g>
+          </svg>
+          <figcaption>Données réelles : 39 consignes de navigabilité publiques (FAA, reprises de l'EASA) classées par chapitre ATA.</figcaption>
+        </figure>
+        <aside class="volet" aria-live="polite">
+          <h3 id="z-titre">Choisissez une zone</h3>
+          <div class="compte" id="z-compte">39<small>consignes en base</small></div>
+          <div class="exemple" id="z-exemple"><span class="ad">Exemple de réponse</span>« Une perte de contrôle en lacet pourrait résulter du contact entre l'arbre de transmission arrière et son amortisseur [AD 2026-05-13]. »</div>
+          <p class="aide" id="z-aide">Chaque bulle compte les consignes qui touchent cette zone de l'appareil.</p>
+          <div class="faits"><span>39 consignes</span><span>11 familles d'hélicoptères</span><span>Interface FR / EN</span><span>IA 100 % locale</span></div>
+        </aside>
+      </div>
+
+      <ol class="pipeline">
+        <li><b>Collecte</b><p>Téléchargement automatique des consignes via l'API du Federal Register.</p></li>
+        <li><b>Mapping</b><p>Extraction des métadonnées vers SQLite, classement ATA, contrôle qualité.</p></li>
+        <li><b>Indexation</b><p>Découpage en passages et embeddings multilingues dans Chroma.</p></li>
+        <li><b>Génération</b><p>Réponses et synthèses par un LLM local, chaque affirmation sourcée.</p></li>
+        <li><b>Interface</b><p>Application Flask bilingue : vue appareil, questions, synthèses, données.</p></li>
+      </ol>
+      <div class="lien-projet">
+        <a class="bouton" href="https://github.com/japhetkoyakossoesso-eng/certidocAI" target="_blank" rel="noopener">Voir le code sur GitHub</a>
+        <div class="pile" style="align-self:center"><span>Python</span><span>SQLite</span><span>LangChain</span><span>Chroma</span><span>Ollama</span><span>Flask</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projets">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Projets</h2>
+        <p>De la vision par ordinateur aux applications web, des projets personnels et universitaires, presque tous publiés sur GitHub.</p>
+      </div>
+      <div class="filtres" role="group" aria-label="Filtrer les projets">
+        <button type="button" data-filtre="tous" aria-pressed="true">Tous</button>
+        <button type="button" data-filtre="ia" aria-pressed="false">IA &amp; data</button>
+        <button type="button" data-filtre="web" aria-pressed="false">Web</button>
+        <button type="button" data-filtre="app" aria-pressed="false">Applications</button>
+      </div>
+      <div class="grille" id="grille"></div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="competences">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Compétences</h2>
+        <p>Les outils que j'utilise en projet, du langage au déploiement.</p>
+      </div>
+      <div class="domaines">
+        <div class="domaine"><h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>Langages</h3>
+          <div class="puces"><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>R</span><span>PHP</span><span>Go</span><span>Rust</span><span>HTML / CSS</span><span>Shell</span><span>PowerShell</span><span>Prolog</span></div></div>
+        <div class="domaine"><h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><path d="M7 7l3 4M7 17l3-4M14 12h3"/></svg>Data &amp; IA</h3>
+          <div class="puces"><span>Pandas</span><span>NumPy</span><span>scikit-learn</span><span>TensorFlow / LSTM</span><span>OpenCV</span><span>MediaPipe</span><span>Matplotlib</span><span>LangChain</span><span>RAG</span><span>Chroma</span><span>Hugging Face</span><span>Ollama</span><span>API LLM (OpenAI, Mistral, Anthropic)</span><span>Power BI</span></div></div>
+        <div class="domaine"><h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg>Web &amp; applications</h3>
+          <div class="puces"><span>Django</span><span>Flask</span><span>Node.js</span><span>Bootstrap</span><span>Chart.js</span><span>API REST</span><span>Tkinter</span><span>Kivy</span><span>openpyxl</span></div></div>
+        <div class="domaine"><h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>Bases de données</h3>
+          <div class="puces"><span>PostgreSQL</span><span>MySQL</span><span>MariaDB</span><span>SQLite</span><span>Modélisation relationnelle</span></div></div>
+        <div class="domaine"><h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><path d="M10 6.5h4v11h0"/></svg>Génie logiciel</h3>
+          <div class="puces"><span>UML</span><span>Programmation orientée objet</span><span>Tests unitaires</span><span>Tests fonctionnels</span><span>Revues de code</span><span>Cahier des charges</span><span>Gantt</span></div></div>
+        <div class="domaine"><h3><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="9" r="2.5"/><path d="M6 8.5v7M8.5 6.5c5 0 7.5 0 7.5 2.5"/></svg>DevOps &amp; outils</h3>
+          <div class="puces"><span>Git</span><span>GitHub</span><span>GitLab</span><span>Docker</span><span>CI/CD</span><span>Linux</span><span>macOS</span><span>Vercel</span><span>PythonAnywhere</span><span>IntelliJ IDEA</span><span>Eclipse</span><span>PyCharm</span><span>VS Code</span><span>RStudio</span><span>Claude Code</span><span>GitHub Copilot</span><span>Windsurf</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parcours -->
+  <section id="parcours">
+    <div class="wrap">
+      <div class="titre-section">
+        <h2>Parcours</h2>
+        <p>Une formation qui mêle informatique, mathématiques et sciences humaines, et une première expérience en entreprise.</p>
+      </div>
+      <div class="deux">
+        <div>
+          <article class="bloc">
+            <h3>Stagiaire développeur web</h3>
+            <p class="quand">Oct. 2025 – déc. 2025</p>
+            <p class="ou">Web-atrio, entreprise de services numériques, Toulouse</p>
+            <ul>
+              <li>Fonctionnalités front et back sur une application en production</li>
+              <li>Tests, correction d'anomalies et requêtes SQL (MySQL)</li>
+              <li>Revues de code avec un développeur senior, travail sous Git</li>
+            </ul>
+          </article>
+        </div>
+        <div>
+          <article class="bloc">
+            <h3>Licence MIASHS, parcours Informatique</h3>
+            <p class="quand">2024 – 2027</p>
+            <p class="ou">Université Toulouse Jean Jaurès</p>
+            <ul>
+              <li>Développement logiciel, conception objet et UML</li>
+              <li>Bases de données, statistiques, intelligence artificielle</li>
+            </ul>
+          </article>
+          <article class="bloc">
+            <h3>Certifications</h3>
+            <ul>
+              <li>Développeur Python — Formation complète (Udemy, 69,5 h, 2026)</li>
+              <li>Power BI : Power Query, DAX, préparation de la certification PL-300 (en cours)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2>Travaillons ensemble</h2>
+          <p>Je recherche un stage de 3 à 6 mois dès février 2027 pour valider ma licence, puis une alternance en data, IA ou développement. Écrivez-moi, je réponds rapidement.</p>
+        </div>
+        <div class="canaux">
+          <div class="canal"><div><span>E-mail</span><b id="mail">japhetkoyakossoesso@gmail.com</b></div><button type="button" id="copier">Copier</button></div>
+          <div class="canal"><div><span>LinkedIn</span><b>japhet-koyakosso-esso</b></div><a href="https://www.linkedin.com/in/japhet-koyakosso-esso-974a33313" target="_blank" rel="noopener">Ouvrir</a></div>
+          <div class="canal"><div><span>GitHub</span><b>japhetkoyakossoesso-eng</b></div><a href="https://github.com/japhetkoyakossoesso-eng" target="_blank" rel="noopener">Ouvrir</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Japhet Koyakosso-Esso · Toulouse · 2026</footer>
+
+<script>
+(() => {
+  const reduit = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Réseau de données en fond ---------- */
+  const cv = document.getElementById("reseau"), ctx = cv.getContext("2d");
+  let W, H, pts = [], souris = {x: -999, y: -999};
+  function taille(){
+    const r = window.devicePixelRatio || 1;
+    W = cv.width = innerWidth * r; H = cv.height = innerHeight * r;
+    cv.style.width = innerWidth + "px"; cv.style.height = innerHeight + "px";
+    const n = innerWidth < 700 ? 34 : 70;
+    pts = Array.from({length: n}, () => ({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.35*r, vy: (Math.random()-.5)*.35*r, a: Math.random() < .18}));
+  }
+  function dessiner(){
+    const r = window.devicePixelRatio || 1, lien = 140*r;
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts){
+      if (!reduit){ p.x += p.vx; p.y += p.vy; if (p.x<0||p.x>W) p.vx*=-1; if (p.y<0||p.y>H) p.vy*=-1; }
+      const dx = p.x - souris.x*r, dy = p.y - souris.y*r, d = Math.hypot(dx, dy);
+      if (d < 160*r && !reduit){ p.x += dx/d*.6; p.y += dy/d*.6; }
+    }
+    for (let i=0;i<pts.length;i++) for (let j=i+1;j<pts.length;j++){
+      const a=pts[i], b=pts[j], d=Math.hypot(a.x-b.x, a.y-b.y);
+      if (d < lien){ ctx.strokeStyle = `rgba(147,160,184,${(1-d/lien)*.22})`; ctx.lineWidth = r; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+    }
+    for (const p of pts){ ctx.fillStyle = p.a ? "rgba(232,163,61,.85)" : "rgba(95,208,166,.55)"; ctx.beginPath(); ctx.arc(p.x, p.y, (p.a?2.4:1.6)*r, 0, Math.PI*2); ctx.fill(); }
+    if (!reduit) requestAnimationFrame(dessiner);
+  }
+  taille(); dessiner();
+  addEventListener("resize", () => { taille(); if (reduit) dessiner(); });
+  addEventListener("pointermove", e => {
+    souris = {x: e.clientX, y: e.clientY};
+    document.getElementById("halo").style.setProperty("--x", e.clientX + "px");
+    document.getElementById("halo").style.setProperty("--y", e.clientY + "px");
+  });
+
+  /* ---------- Terminal : démonstration de CertiDoc AI ---------- */
+  const lignes = [
+    ['p', '$ '], ['t', 'python3 certidoc_ia.py "Qu\'est-ce qui pourrait entraîner une perte de contrôle en lacet ?"\n'],
+    ['m', '→ recherche dans 39 consignes de navigabilité…\n'],
+    ['ok', '✓ 5 passages retrouvés · modèle local llama3.1:8b\n\n'],
+    ['x', 'Une perte de contrôle en lacet pourrait résulter du contact entre l\'arbre de transmission arrière du rotor de queue et son amortisseur pendant un vol d\'essai '], ['c', '[AD 2026-05-13]'], ['x', '.\n\n'],
+    ['m', 'Consignes citées : 1 · Passages consultés : 5\n'],
+    ['p', '$ '], ['t', 'python3 certidoc_ia.py "Quelle est la vitesse maximale du H160 ?"\n'],
+    ['x', 'Je ne trouve aucune mention de cette information dans les consignes. Je préfère ne pas inventer de réponse.\n'],
+    ['p', '$ ']
+  ];
+  const pre = document.getElementById("console");
+  let minuteur = null;
+  function rendre(texteParLigne){
+    pre.innerHTML = texteParLigne + '<span class="curseur"></span>';
+  }
+  function echap(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+  function bloc(type, s){ return type === 'x' || type === 't' ? echap(s) : `<span class="${type}">${echap(s)}</span>`; }
+  function jouer(){
+    clearTimeout(minuteur);
+    if (reduit){ rendre(lignes.map(([t,s]) => bloc(t,s)).join("")); return; }
+    let i = 0, k = 0, fait = "";
+    (function pas(){
+      if (i >= lignes.length){ rendre(fait); return; }
+      const [type, s] = lignes[i];
+      if (type === 't'){                      // frappe caractère par caractère
+        k++; rendre(fait + bloc(type, s.slice(0, k)));
+        if (k < s.length){ minuteur = setTimeout(pas, 22 + Math.random()*30); return; }
+        fait += bloc(type, s); i++; k = 0; minuteur = setTimeout(pas, 380); return;
+      }
+      fait += bloc(type, s); i++; rendre(fait);
+      minuteur = setTimeout(pas, type === 'x' ? 520 : 260);
+    })();
+  }
+  document.getElementById("rejouer").addEventListener("click", jouer);
+  jouer();
+
+  /* ---------- Schéma interactif ---------- */
+  const ZONES = {
+    rotor:    {lib:"Rotor|principal", n:3, a:[235,71], b:[90,36], ad:"AD 2026-05-04", ex:"Tête de rotor principal portant le même numéro de série qu'une autre, après une modification mal documentée (BK117)."},
+    commandes:{lib:"Commandes|de vol rotor", n:1, a:[402,114], b:[330,36]},
+    bgp:      {lib:"Transmission|rotor principal", n:5, a:[392,138], b:[560,36], ad:"AD 2026-16-01", ex:"Bride moteur mal installée sur l'accouplement de la boîte de transmission principale (H125)."},
+    moteur:   {lib:"Moteur", n:1, a:[495,138], b:[790,36], ad:"AD 2026-05-09", ex:"Durite du système de drainage rompue par une fuite d'air chaud dans la soute arrière (AS355)."},
+    vitrages: {lib:"Fenêtres|et pare-brise", n:3, a:[212,196], b:[110,400], ad:"AD 2026-12-12", ex:"Écrous autobloquants du système de largage des fenêtres desserrables à la main (H160)."},
+    portes:   {lib:"Portes", n:1, a:[405,215], b:[295,400]},
+    cabine:   {lib:"Équipements|de cabine", n:7, a:[530,238], b:[490,400], ad:"AD 2026-07-09", ex:"Fuite d'une bouteille de gaz du système de radeau de survie (H160)."},
+    arbre:    {lib:"Transmission|rotor de queue", n:5, a:[722,175], b:[690,400], ad:"AD 2026-05-13", ex:"Arbre de transmission arrière en contact avec son amortisseur pendant un vol d'essai (H160)."},
+    rac:      {lib:"Rotor|de queue", n:2, a:[884,150], b:[885,400], ad:"AD 2026-05-06", ex:"Fissures de fatigue sur les bras du croisillon de changement de pas (AS332, SA330)."}
+  };
+  const NS = "http://www.w3.org/2000/svg", gR = document.getElementById("reperes"), gB = document.getElementById("bulles");
+  const el = (n, at) => { const e = document.createElementNS(NS, n); for (const k in at) e.setAttribute(k, at[k]); return e; };
+  for (const [cle, z] of Object.entries(ZONES)){
+    gR.appendChild(el("line", {class:"repere", x1:z.a[0], y1:z.a[1], x2:z.b[0], y2:z.b[1]}));
+    gR.appendChild(el("circle", {cx:z.a[0], cy:z.a[1], r:3, fill:"#C9D2E3"}));
+    const g = el("g", {class:"bulle", "data-zone":cle, tabindex:0, role:"button", "aria-label":`${z.lib.replace("|"," ")} : ${z.n} consigne${z.n>1?"s":""}`});
+    g.appendChild(el("circle", {cx:z.b[0], cy:z.b[1], r:23}));
+    const t = el("text", {class:"n", x:z.b[0], y:z.b[1]}); t.textContent = z.n; g.appendChild(t);
+    z.lib.split("|").forEach((l, i, arr) => {
+      const haut = z.b[1] < 200;
+      const tx = el("text", haut ? {class:"lib", x:z.b[0]+32, y: arr.length === 1 ? z.b[1]+5 : z.b[1]-4+i*16} : {class:"lib", x:z.b[0], y:z.b[1]+42+i*16, "text-anchor":"middle"});
+      tx.textContent = l; g.appendChild(tx);
+    });
+    gB.appendChild(g);
+  }
+  function choisir(cle){
+    const z = ZONES[cle]; if (!z) return;
+    document.querySelectorAll("[data-zone]").forEach(e => e.classList.toggle("active", e.dataset.zone === cle));
+    document.getElementById("z-titre").textContent = z.lib.replace("|", " ");
+    document.getElementById("z-compte").innerHTML = `${z.n}<small>consigne${z.n>1?"s":""}</small>`;
+    const ex = document.getElementById("z-exemple");
+    if (z.ex){ ex.hidden = false; ex.innerHTML = `<span class="ad">${z.ad}</span>${z.ex}`; } else { ex.hidden = true; }
+    document.getElementById("z-aide").textContent = z.ex ? "Exemple tiré d'une consigne réelle de cette zone." : "Le détail de cette consigne est consultable dans l'application.";
+  }
+  document.querySelectorAll("[data-zone]").forEach(e => {
+    e.addEventListener("click", () => choisir(e.dataset.zone));
+    e.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); choisir(e.dataset.zone); } });
+  });
+
+  /* ---------- Projets filtrables ---------- */
+  const GH = "https://github.com/japhetkoyakossoesso-eng/";
+  const PROJETS = [
+    {t:"CertiDoc AI", y:"2026", c:"ia", v:true, d:"Base documentaire de certification d'hélicoptères interrogeable par IA : mapping SQL, RAG, synthèses par appareil et par pièce, sources citées, interface bilingue.", s:["Python","LangChain","Chroma","Ollama","Flask"], l:GH+"certidocAI"},
+    {t:"AI Career Coach", y:"2026 – 2027", c:"ia", d:"Projet tutoré en équipe : accompagnement à la recherche d'emploi par IA générative, analyse de CV et d'offres, pseudonymisation et tests automatisés.", s:["Python","LLM","Docker","Git"]},
+    {t:"Signum HandSpeak", y:"2026", c:"ia", d:"Traduction de la langue des signes française en temps réel : 5 200 échantillons, Random Forest à 100 % de précision, LSTM pour les gestes dynamiques, synthèse vocale.", s:["OpenCV","MediaPipe","scikit-learn","TensorFlow"], l:GH+"Projet_Signum_HandSpeak_"},
+    {t:"Student Grade Prediction", y:"2026", c:"ia", d:"Pipeline de machine learning complet : dataset synthétique, analyse exploratoire, Random Forest et régression logistique, rapport RMarkdown.", s:["scikit-learn","Pandas","R"], l:GH+"projet_prediction_notes_avec_machine_learning"},
+    {t:"Qualité de l'air en Occitanie", y:"2025 – 2026", c:"ia", d:"Pipeline ETL, base normalisée de 5 tables liées par code INSEE, 15 requêtes SQL sur 5 problématiques. Noté 18,83/20.", s:["Python","SQLite","PostgreSQL","R"], l:GH+"Projet_Qualit-_de_l_Air_En_Occitanie"},
+    {t:"Initiation à l'IA", y:"2025 – 2026", c:"ia", d:"Analyse comparative de LLM, base de connaissances en Prolog, benchmark de modèles et de leur impact énergétique.", s:["Prolog","Python","LLM"], l:GH+"Initiation_A_Lapprentissage_automatique"},
+    {t:"Quiz John von Neumann", y:"2025 – 2026", c:"web", d:"Site responsive de 4 pages et quiz interactif de 10 questions, validé W3C, testé sur 4 navigateurs.", s:["JavaScript","HTML / CSS","Bootstrap"], l:GH+"ProjetWeb-quiz-sur-un-c-l-bre", demo:"https://projetwebquizsuruncelebrate.vercel.app"},
+    {t:"Pizza Django", y:"2026", c:"web", d:"Application web de gestion d'une pizzeria en architecture MVT, déployée sur PythonAnywhere.", s:["Python","Django"], l:GH+"Pizza_Django"},
+    {t:"Du Python au PHP", y:"2026", c:"web", d:"Cinémathèque web : requêtes SQL avec jointures, filtres par genre, ajout et suppression de films.", s:["PHP","MariaDB"], l:GH+"Du_python_au_PHP"},
+    {t:"Visualisation Chart.js", y:"2025 – 2026", c:"web", d:"Tableaux de bord des inscriptions étudiantes à partir de l'API OpenData de l'Enseignement supérieur.", s:["JavaScript","Chart.js","API REST"], l:GH+"developpement_app_web_biblio_chart"},
+    {t:"Tisséo API Web App", y:"2026", c:"web", d:"Application JavaScript qui interroge l'API OpenData Tisséo pour afficher les lignes et arrêts de Toulouse.", s:["JavaScript","AJAX","API REST"]},
+    {t:"Excel Invoice Generator", y:"2026", c:"app", d:"Automatisation de la facturation : contrôle de la structure des fichiers Excel, agrégation par client, génération des factures.", s:["Python","openpyxl"], l:GH+"Projet_factures_excel"},
+    {t:"Repas de groupe", y:"2025 – 2026", c:"app", d:"Application de saisie et de suivi des contributions d'un repas de promotion, conçue en UML.", s:["Python","Tkinter","UML"], l:GH+"Projet_ingSI_2"},
+    {t:"DomoHouse System", y:"2026", c:"app", d:"Interface domotique : gestion de maisons et de pièces, thème clair ou sombre, traitement d'images.", s:["Python","Tkinter","Pillow"], l:GH+"Projet_ingSI_2"},
+    {t:"Projet Galaxy", y:"2026", c:"app", d:"Jeu arcade en pseudo-3D : perspective, difficulté progressive, power-ups, meilleur score sauvegardé.", s:["Python","Kivy"], l:GH+"Projet_galaxy"}
+  ];
+  const grille = document.getElementById("grille");
+  grille.innerHTML = PROJETS.map(p => `
+    <article class="carte${p.v ? " vedette" : ""}" data-cat="${p.c}">
+      <div class="haut"><h3>${p.t}</h3><span class="annee">${p.y}</span></div>
+      <p>${p.d}</p>
+      <div class="pile">${p.s.map(x => `<span>${x}</span>`).join("")}</div>
+      ${(p.l || p.demo) ? `<div class="liens">${p.l ? `<a href="${p.l}" target="_blank" rel="noopener">Code</a>` : ""}${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener">Démo en ligne</a>` : ""}</div>` : ""}
+    </article>`).join("");
+  document.querySelectorAll(".filtres button").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".filtres button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    const f = b.dataset.filtre;
+    grille.querySelectorAll(".carte").forEach(c => c.classList.toggle("cache", f !== "tous" && c.dataset.cat !== f));
+  }));
+
+  /* ---------- Copier l'adresse e-mail ---------- */
+  const copier = document.getElementById("copier");
+  copier.addEventListener("click", () => {
+    const adresse = document.getElementById("mail").textContent;
+    const fini = () => { copier.textContent = "Copié"; setTimeout(() => copier.textContent = "Copier", 1800); };
+    const repli = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById("mail")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copier.textContent = "Sélectionné"; };
+    if (navigator.clipboard) navigator.clipboard.writeText(adresse).then(fini, repli); else repli();
+  });
+})();
+</script>
+</body>
+</html>
