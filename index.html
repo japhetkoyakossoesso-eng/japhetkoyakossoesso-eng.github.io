@@ -82,7 +82,7 @@ section{padding-block:clamp(56px,9vw,104px)}
 .curseur{display:inline-block;width:.6em;height:1.1em;vertical-align:-.2em;background:var(--amber);animation:clignote 1s steps(1) infinite}
 @keyframes clignote{50%{opacity:0}}
 
-/* Projet phare */
+/* Méthode */
 .phare{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:26px;align-items:start}
 @media (max-width:900px){.phare{grid-template-columns:1fr}}
 .schema{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 10px 8px;min-width:0;
@@ -96,6 +96,15 @@ section{padding-block:clamp(56px,9vw,104px)}
 .zone:hover,.zone.active,.zone:focus-visible{fill:rgba(232,163,61,.22);stroke:var(--amber)}
 .zone.ligne-z:hover,.zone.ligne-z.active{stroke:rgba(232,163,61,.35)}
 .repere{stroke:#6F7C96;stroke-width:1.2}
+.etapes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-bottom:22px}
+@media (max-width:900px){.etapes{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.etapes{grid-template-columns:1fr}}
+.etape{font:600 1rem var(--body);color:var(--text);background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-align:left;cursor:pointer;transition:border-color .2s,background .2s}
+.etape span{display:block;font:500 .78rem var(--mono);color:var(--amber);margin-bottom:6px}
+.etape:hover,.etape:focus-visible{border-color:var(--amber);outline:none}
+.etape[aria-pressed="true"]{background:var(--amber-soft);border-color:var(--amber)}
+.citation .grande{font-family:var(--display);font-size:1.6rem;line-height:1.3;color:var(--text)}
+
 .archi-t{font:600 17px var(--body);fill:#EDEFF3;pointer-events:none}
 .archi-s{font:12.5px var(--mono);fill:#93A0B8;pointer-events:none}
 .zone.pointille{stroke-dasharray:7 5}
@@ -188,7 +197,7 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
   <div class="wrap">
     <a class="monogramme" href="#accueil"><span>JK</span>Japhet Koyakosso-Esso</a>
     <ul>
-      <li><a href="#safetransport">SafeTransport AI</a></li>
+      <li><a href="#methode">Méthode</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#competences">Compétences</a></li>
       <li><a href="#parcours">Parcours</a></li>
@@ -208,99 +217,45 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
         <p class="metier"><b>Développeur Full-Stack</b> · Data · Intelligence artificielle</p>
         <p class="accroche">De la donnée brute au tableau de bord, du backend à l'interface, je construis des outils utiles et fiables : pipelines de données, bases et entrepôts SQL, applications web connectées à des API, automatisations, et assistants à base d'IA qui citent leurs sources.</p>
         <div class="actions">
-          <a class="bouton" href="#safetransport">Découvrir SafeTransport AI</a>
+          <a class="bouton" href="#methode">Ma façon de travailler</a>
           <a class="bouton ligne" href="#projets">Voir tous les projets</a>
           <a class="bouton ligne" href="#contact">Me contacter</a>
         </div>
       </div>
-      <div class="terminal" aria-label="Démonstration de SafeTransport AI dans un terminal">
-        <div class="barre"><i></i><i></i><i></i><span>safetransport — zsh</span><button type="button" id="rejouer">Rejouer</button></div>
+      <div class="terminal" aria-label="Présentation de Japhet dans un terminal">
+        <div class="barre"><i></i><i></i><i></i><span>japhet — zsh</span><button type="button" id="rejouer">Rejouer</button></div>
         <pre id="console" aria-live="off"></pre>
       </div>
     </header>
   </div>
 
-  <!-- Projet phare -->
-  <section id="safetransport">
+  <!-- Méthode -->
+  <section id="methode">
     <div class="wrap">
       <div class="titre-section">
-        <h2>Projet phare : SafeTransport AI</h2>
-        <p>Une plateforme d'analyse de la sécurité des transports : centraliser les accidents, fiabiliser les données, calculer des indicateurs comparables et les restituer. Un projet complet en Python, Java, SQL, JavaScript (Vue.js et Node.js), PHP et R, organisé en six services Docker. Cliquez sur un bloc de l'architecture.</p>
+        <h2>Ma façon de travailler</h2>
+        <p>Cinq réflexes, du besoin à l'outil livré. Chacun est prouvé par un vrai projet : cliquez sur une étape.</p>
+      </div>
+      <div class="etapes" role="group" aria-label="Étapes de travail">
+        <button type="button" class="etape" data-zone="besoin" aria-pressed="false"><span>01</span>Comprendre le besoin</button>
+        <button type="button" class="etape" data-zone="donnees" aria-pressed="false"><span>02</span>Fiabiliser les données</button>
+        <button type="button" class="etape" data-zone="construire" aria-pressed="false"><span>03</span>Construire l'outil</button>
+        <button type="button" class="etape" data-zone="verifier" aria-pressed="false"><span>04</span>Vérifier</button>
+        <button type="button" class="etape" data-zone="transmettre" aria-pressed="false"><span>05</span>Expliquer et transmettre</button>
       </div>
       <div class="phare">
-        <figure class="schema" style="margin:0">
-          <svg viewBox="0 0 1000 470" role="img" aria-label="Architecture interactive de SafeTransport AI">
-            <defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6F7C96"/></marker></defs>
-            <line class="repere" x1="240" y1="105" x2="296" y2="105" marker-end="url(#fl)"/>
-            <line class="repere" x1="500" y1="105" x2="556" y2="105" marker-end="url(#fl)"/>
-            <line class="repere" x1="700" y1="170" x2="140" y2="266" marker-end="url(#fl)"/>
-            <line class="repere" x1="730" y1="170" x2="380" y2="266" marker-end="url(#fl)"/>
-            <line class="repere" x1="760" y1="170" x2="620" y2="266" marker-end="url(#fl)"/>
-            <line class="repere" x1="790" y1="170" x2="860" y2="266" marker-end="url(#fl)"/>
-            <line class="repere" x1="380" y1="350" x2="380" y2="376" marker-end="url(#fl)"/>
-
-            <rect class="zone" data-zone="sources" x="40" y="60" width="200" height="90" rx="8" tabindex="0" role="button" aria-label="Sources officielles"/>
-            <text class="archi-t" x="140" y="98" text-anchor="middle">Sources officielles</text>
-            <text class="archi-s" x="140" y="122" text-anchor="middle">ONISR BAAC · NTSB</text>
-
-            <rect class="zone" data-zone="etl" x="300" y="60" width="200" height="90" rx="8" tabindex="0" role="button" aria-label="ETL Python"/>
-            <text class="archi-t" x="400" y="98" text-anchor="middle">ETL Python</text>
-            <text class="archi-s" x="400" y="122" text-anchor="middle">nettoyage · dédoublonnage</text>
-
-            <rect class="zone" data-zone="db" x="560" y="40" width="400" height="130" rx="8" tabindex="0" role="button" aria-label="Base PostgreSQL"/>
-            <text class="archi-t" x="760" y="84" text-anchor="middle">PostgreSQL 16 · PostGIS · pgvector</text>
-            <text class="archi-s" x="760" y="110" text-anchor="middle">schémas core · sensitive · bi (en étoile)</text>
-            <text class="archi-s" x="760" y="134" text-anchor="middle">27 tables · 29 tests SQL · migrations Flyway</text>
-
-            <rect class="zone pointille" data-zone="ia" x="40" y="270" width="200" height="80" rx="8" tabindex="0" role="button" aria-label="IA et FastAPI"/>
-            <text class="archi-t" x="140" y="304" text-anchor="middle">IA · FastAPI</text>
-            <text class="archi-s" x="140" y="328" text-anchor="middle">ML et RAG à venir</text>
-
-            <rect class="zone" data-zone="api" x="280" y="270" width="200" height="80" rx="8" tabindex="0" role="button" aria-label="API Spring Boot"/>
-            <text class="archi-t" x="380" y="304" text-anchor="middle">API Spring Boot</text>
-            <text class="archi-s" x="380" y="328" text-anchor="middle">REST · rôles · audit</text>
-
-            <rect class="zone" data-zone="stats" x="520" y="270" width="200" height="80" rx="8" tabindex="0" role="button" aria-label="Statistiques"/>
-            <text class="archi-t" x="620" y="304" text-anchor="middle">Statistiques</text>
-            <text class="archi-s" x="620" y="328" text-anchor="middle">taux · IC 95 %</text>
-
-            <rect class="zone pointille" data-zone="bi" x="760" y="270" width="200" height="80" rx="8" tabindex="0" role="button" aria-label="Power BI"/>
-            <text class="archi-t" x="860" y="304" text-anchor="middle">Power BI</text>
-            <text class="archi-s" x="860" y="328" text-anchor="middle">modèle en étoile</text>
-
-            <line class="repere" x1="140" y1="380" x2="296" y2="352" marker-end="url(#fl)"/>
-            <line class="repere" x1="470" y1="350" x2="556" y2="378" marker-end="url(#fl)"/>
-            <rect class="zone pointille" data-zone="admin" x="40" y="380" width="200" height="70" rx="8" tabindex="0" role="button" aria-label="Back-office PHP Laravel"/>
-            <text class="archi-t" x="140" y="410" text-anchor="middle">Back-office PHP</text>
-            <text class="archi-s" x="140" y="432" text-anchor="middle">Laravel · imports</text>
-            <rect class="zone pointille" data-zone="notif" x="520" y="380" width="200" height="70" rx="8" tabindex="0" role="button" aria-label="Notifications Node.js"/>
-            <text class="archi-t" x="620" y="410" text-anchor="middle">Notifications</text>
-            <text class="archi-s" x="620" y="432" text-anchor="middle">Node.js · alertes</text>
-            <rect class="zone" data-zone="web" x="280" y="380" width="200" height="70" rx="8" tabindex="0" role="button" aria-label="Interface Vue.js"/>
-            <text class="archi-t" x="380" y="410" text-anchor="middle">Interface Vue.js</text>
-            <text class="archi-s" x="380" y="432" text-anchor="middle">recherche · filtres</text>
-          </svg>
-          <figcaption>Trait plein : réalisé. Pointillés : en cours ou à venir, selon la feuille de route du projet.</figcaption>
-        </figure>
         <aside class="volet" aria-live="polite">
-          <h3 id="z-titre">Des chiffres vérifiés</h3>
-          <div class="compte" id="z-compte">5,24<small>tués par milliard de véhicules-km</small></div>
-          <div class="exemple" id="z-exemple"><span class="ad">Contrôle 2023</span>Le taux calculé à partir des données importées retrouve celui de l'ONISR (5,2) : l'import et les dénominateurs sont validés.</div>
-          <p class="aide" id="z-aide">Cliquez sur un bloc pour voir ce qu'il fait.</p>
-          <div class="faits"><span>2 sources officielles</span><span>27 tables</span><span>29 tests SQL</span><span>6 services Docker</span><span>CI GitHub Actions</span></div>
+          <h3 id="z-titre">Comprendre le besoin</h3>
+          <div class="compte" id="z-compte">Qui ?<small>pour qui, pour quoi, avec quelles données</small></div>
+          <div class="exemple" id="z-exemple"></div>
+          <p class="aide" id="z-aide"></p>
+          <div class="faits" id="z-outils"></div>
         </aside>
-      </div>
-
-      <ol class="pipeline">
-        <li><b>Sources</b><p>Fiche par source : licence, format, dictionnaire des variables et biais connus.</p></li>
-        <li><b>ETL</b><p>Lecture, nettoyage, dédoublonnage, règles de qualité ; chaque rejet est journalisé.</p></li>
-        <li><b>Base de données</b><p>PostgreSQL versionné par Flyway, rôles aux droits minimaux, schéma en étoile.</p></li>
-        <li><b>API et interface</b><p>API Spring Boot documentée, interface Vue.js de recherche et de filtres.</p></li>
-        <li><b>Statistiques et BI</b><p>Taux rapportés à l'exposition avec intervalles de confiance, tableaux de bord.</p></li>
-      </ol>
-      <div class="lien-projet">
-        <a class="bouton" href="https://github.com/japhetkoyakossoesso-eng/SafeTransportIA" target="_blank" rel="noopener">Voir le code sur GitHub</a>
-        <div class="pile" style="align-self:center"><span>Python · FastAPI</span><span>Java · Spring Boot</span><span>SQL · PostgreSQL · PostGIS · pgvector</span><span>JavaScript · Vue.js · Vite</span><span>Node.js</span><span>PHP · Laravel</span><span>R</span><span>Power BI · DAX</span><span>Flyway</span><span>Docker</span><span>GitHub Actions</span></div>
+        <div class="volet citation">
+          <p class="grande">« Un outil n'est utile que s'il est fiable, compris et vraiment utilisé. »</p>
+          <p class="aide">C'est la règle que je me fixe sur chaque projet, du script d'automatisation à la plateforme de données.</p>
+          <div class="faits"><span>2e sur 80 en L2</span><span>1 stage en entreprise</span><span>17 projets publiés</span><span>Stage dès janvier ou avril 2027</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -446,15 +401,18 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
 
   /* ---------- Terminal : démonstration de SafeTransport AI ---------- */
   const lignes = [
-    ['p', '$ '], ['t', 'python -m stats 2023\n'],
-    ['m', '→ lecture du schéma bi : accidents validés, non simulés…\n'],
-    ['ok', '✓ BAAC 2023 · NTSB 2015–2024 · expositions SDES et FAA\n\n'],
-    ['x', 'Tués sur la route : 3 167 · 5,24 pour 1 Md véh-km '], ['c', '[IC 95 % 5,06 – 5,43]'], ['x', '\n'],
-    ['m', '  publié par l\'ONISR : 5,2\n'],
-    ['x', 'Aviation générale, accidents mortels : 0,68 pour 100 000 h '], ['c', '[0,59 – 0,78]'], ['x', '\n'],
-    ['m', '  publié par l\'AOPA : 0,65\n\n'],
-    ['p', '$ '], ['t', 'python -m etl.baac importer ../data/raw/baac/2023\n'],
-    ['x', 'Ce lot de fichiers a déjà été importé : aucun doublon créé.\n'],
+    ['p', '$ '], ['t', 'whoami\n'],
+    ['x', 'japhet : étudiant en L3 MIASHS Informatique, Toulouse\n\n'],
+    ['p', '$ '], ['t', 'cat profil.txt\n'],
+    ['m', 'classement   '], ['x', '2e sur 80 en L2\n'],
+    ['m', 'expérience   '], ['x', 'développeur web chez Web-atrio (2025)\n'],
+    ['m', 'langages     '], ['x', 'Python · Java · JavaScript · SQL · PHP · R\n'],
+    ['m', 'domaines     '], ['x', 'données · full-stack · IA\n\n'],
+    ['p', '$ '], ['t', 'cat disponibilite.txt\n'],
+    ['ok', '✓ stage de fin de licence dès janvier ou avril 2027\n'],
+    ['ok', '✓ puis master en alternance\n\n'],
+    ['p', '$ '], ['t', 'ls projets/ | wc -l\n'],
+    ['c', '17\n'],
     ['p', '$ ']
   ];
   const pre = document.getElementById("console");
@@ -483,32 +441,25 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
   document.getElementById("rejouer").addEventListener("click", jouer);
   jouer();
 
-  /* ---------- Architecture interactive ---------- */
+  /* ---------- Méthode interactive ---------- */
   const ZONES = {
-    sources:{t:"Sources officielles", n:"2", u:"sources nationales", ad:"Fait", ex:"Accidents corporels de la route en France (ONISR, fichiers BAAC sur data.gouv.fr) et accidents d'aviation (NTSB). Chaque source a sa fiche : licence, format, dictionnaire, biais."},
-    etl:{t:"ETL Python", n:"0", u:"doublon après un nouvel import", ad:"Fait", ex:"Lecture des fichiers BAAC (séparateur et encodage détectés), heures locales et coordonnées converties, gravité calculée. Chaque rejet est journalisé, et le rapport vérifie : lus = insérés + rejetés + doublons."},
-    db:{t:"PostgreSQL", n:"27", u:"tables", ad:"Fait", ex:"Schéma versionné par Flyway, PostGIS et pgvector, un compte par service aux droits minimaux, données personnelles isolées dans un schéma dédié, schéma décisionnel en étoile. 29 tests SQL."},
-    api:{t:"API Spring Boot", n:"REST", u:"documentée en OpenAPI", ad:"Fait", ex:"Java 21 et Spring Boot : accidents et incidents (liste, filtres, détail), sources, authentification par rôles, journal d'audit, tests JUnit."},
-    web:{t:"Interface Vue.js", n:"Vue 3", u:"et Chart.js", ad:"Fait", ex:"Recherche et filtres par mode, période, gravité et pays, fiche détail, graphiques. Les données simulées ou non vérifiées sont clairement étiquetées."},
-    stats:{t:"Statistiques", n:"5,24", u:"tués par milliard de véh-km (ONISR : 5,2)", ad:"Fait", ex:"Taux rapportés à l'exposition (SDES, FAA), intervalles exacts de Poisson et de Clopper-Pearson, test de saisonnalité, rapport reproductible. Aviation générale : 0,68 accident mortel pour 100 000 h (AOPA : 0,65)."},
-    bi:{t:"Power BI", n:"…", u:"en cours", ad:"En cours", ex:"Rapport branché sur le schéma en étoile (table de faits, dimensions date, mode, lieu, gravité, source), avec un contrôle : ses totaux doivent égaler ceux de l'API."},
-    admin:{t:"Back-office PHP", n:"PHP 8", u:"et Laravel", ad:"À venir", ex:"Portail de gestion : sources, imports manuels CSV, XML et JSON, revue des signalements, audit. Il passe toujours par l'API Java, sans accès direct à la base. Tests PHPUnit."},
-    notif:{t:"Notifications", n:"Node.js", u:"service d'alertes", ad:"À venir", ex:"Alertes et relances : prévenir un responsable quand un signalement attend sa validation ou qu'une mesure de prévention arrive à échéance."},
-    ia:{t:"IA · FastAPI", n:"…", u:"à venir", ad:"À venir", ex:"Le service Python accueille déjà l'ETL. Prévu : un modèle prédictif évalué face à une baseline, puis un RAG sur les rapports d'enquête BEA et NTSB, avec citations."}
+    besoin:{t:"Comprendre le besoin", n:"Qui ?", u:"pour qui, pour quoi, avec quelles données", ad:"AI Career Coach · CertiDoc AI", ex:"Avant d'écrire du code, j'écoute les utilisateurs : recueil des besoins, cahier des charges et comparaison des solutions existantes dans l'AI Career Coach ; cadrage du besoin avant de construire CertiDoc AI.", o:["Entretiens","Cahier des charges","UML","Gantt"]},
+    donnees:{t:"Fiabiliser les données", n:"0", u:"doublon après un nouvel import", ad:"SafeTransport AI · Web-atrio", ex:"Des règles de qualité, un dédoublonnage et des imports que l'on peut rejouer sans rien casser dans SafeTransport AI ; le contrôle de la cohérence des données sur une base en production chez Web-atrio.", o:["Python","Pandas","SQL","PostgreSQL"]},
+    construire:{t:"Construire l'outil", n:"7", u:"langages pratiqués en projet", ad:"Web, back-end, automatisation", ex:"Une API Spring Boot et une interface Vue.js, des applications Django et PHP, un générateur de factures qui remplace des heures de travail manuel sur Excel : je choisis l'outil selon le besoin.", o:["Java","Python","JavaScript","PHP","SQL","R","Go"]},
+    verifier:{t:"Vérifier", n:"29", u:"tests SQL sur une seule base", ad:"SafeTransport AI · RepasPromo · AI Career Coach", ex:"Des tests sur la base de données et une intégration continue, des tests unitaires de la logique métier, et des tests qui mesurent les hallucinations d'un modèle de langage : je ne livre rien sans l'avoir vérifié.", o:["Tests unitaires","JUnit","GitHub Actions","Docker"]},
+    transmettre:{t:"Expliquer et transmettre", n:"18,83", u:"sur 20, rapport et soutenance", ad:"Qualité de l'air · Ma Semaine Verte", ex:"Documentation, rapports RMarkdown, tableaux de bord et restitutions orales. Chef de projet d'une équipe de cinq sur Ma Semaine Verte, j'ai appris à faire avancer un groupe et à rendre un résultat clair.", o:["Documentation","RMarkdown","Chart.js","Power BI"]}
   };
   function choisir(cle){
     const z = ZONES[cle]; if (!z) return;
-    document.querySelectorAll("[data-zone]").forEach(e => e.classList.toggle("active", e.dataset.zone === cle));
+    document.querySelectorAll("[data-zone]").forEach(e => e.setAttribute("aria-pressed", String(e.dataset.zone === cle)));
     document.getElementById("z-titre").textContent = z.t;
     document.getElementById("z-compte").innerHTML = `${z.n}<small>${z.u}</small>`;
-    const ex = document.getElementById("z-exemple");
-    ex.hidden = false; ex.innerHTML = `<span class="ad">${z.ad}</span>${z.ex}`;
-    document.getElementById("z-aide").textContent = "Cliquez sur un autre bloc pour continuer la visite.";
+    document.getElementById("z-exemple").innerHTML = `<span class="ad">${z.ad}</span>${z.ex}`;
+    document.getElementById("z-aide").textContent = "La preuve est dans les projets ci-dessous.";
+    document.getElementById("z-outils").innerHTML = z.o.map(x => `<span>${x}</span>`).join("");
   }
-  document.querySelectorAll("[data-zone]").forEach(e => {
-    e.addEventListener("click", () => choisir(e.dataset.zone));
-    e.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); choisir(e.dataset.zone); } });
-  });
+  document.querySelectorAll("[data-zone]").forEach(e => e.addEventListener("click", () => choisir(e.dataset.zone)));
+  choisir("besoin");
 
   /* ---------- Projets filtrables ---------- */
   const GH = "https://github.com/japhetkoyakossoesso-eng/";
