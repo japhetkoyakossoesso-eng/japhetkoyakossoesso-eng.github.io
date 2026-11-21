@@ -254,7 +254,7 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
         <div class="volet citation">
           <p class="grande">« Un outil n'est utile que s'il est fiable, compris et vraiment utilisé. »</p>
           <p class="aide">C'est la règle que je me fixe sur chaque projet, du script d'automatisation à la plateforme de données.</p>
-          <div class="faits"><span>2e sur 80 en L2</span><span>1 stage en entreprise</span><span>17 projets publiés</span><span>Stage dès janvier ou avril 2027</span></div>
+          <div class="faits"><span>2e sur 80 en L2</span><span>1 stage en entreprise</span><span>Des dizaines de projets</span><span>Stage dès janvier ou avril 2027</span></div>
         </div>
       </div>
     </div>
@@ -411,8 +411,10 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
     ['p', '$ '], ['t', 'cat disponibilite.txt\n'],
     ['ok', '✓ stage de fin de licence dès janvier ou avril 2027\n'],
     ['ok', '✓ puis master en alternance\n\n'],
-    ['p', '$ '], ['t', 'ls projets/ | wc -l\n'],
-    ['c', '17\n'],
+    ['p', '$ '], ['t', 'ls projets/\n'],
+    ['c', 'SafeTransportIA  certidocAI  AI_Career_Coach  Signum_HandSpeak\n'],
+    ['c', 'ma_semaine_verte  DreamPark  Pizza_Django  Excel_Invoice_Generator\n'],
+    ['m', '… et bien d\'autres sur GitHub\n'],
     ['p', '$ ']
   ];
   const pre = document.getElementById("console");
@@ -480,6 +482,8 @@ footer{position:relative;z-index:1;color:var(--muted);font-size:.85rem;text-alig
     {t:"Excel Invoice Generator", y:"2026", c:"app", d:"Automatisation de la facturation : contrôle de la structure des fichiers Excel, agrégation par client, génération des factures.", s:["Python","openpyxl"], l:GH+"Projet_factures_excel"},
     {t:"Repas de groupe", y:"2025 – 2026", c:"app", d:"Application de suivi des contributions d'un repas de promotion, en équipe de 3 : architecture en couches (contrôleurs, services, repository), base SQLite et tests unitaires.", s:["Python","Tkinter","SQLite","Tests unitaires","UML"], l:GH+"Projet_ingSI_2"},
     {t:"DomoHouse System", y:"2026", c:"app", d:"Interface domotique : gestion de maisons et de pièces, thème clair ou sombre, traitement d'images.", s:["Python","Tkinter","Pillow"], l:GH+"Projet_ingSI_2"},
+    {t:"DreamPark", y:"2025 – 2026", c:"app", d:"Système de gestion de parking : stationnement, récupération des véhicules, abonnements, statistiques et interface graphique.", s:["Python","POO","Interface graphique"], l:GH+"Projet_parking"},
+    {t:"Lab Kivy", y:"2026", c:"app", d:"Expérimentations du framework Kivy pour créer des interfaces graphiques mobiles et desktop en Python.", s:["Python","Kivy","kvlang"], l:GH+"projet_kivy_lelab"},
     {t:"Projet Galaxy", y:"2026", c:"app", d:"Jeu arcade en pseudo-3D : perspective, difficulté progressive, power-ups, meilleur score sauvegardé.", s:["Python","Kivy"], l:GH+"Projet_galaxy"}
   ];
   const grille = document.getElementById("grille");
